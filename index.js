@@ -3,7 +3,7 @@ var app = express();
 var path = require('path');
 var gpio = require('rpi-gpio');
 
-gpio.setup(7, gpio.DIR_OUT);
+gpio.setup(11, gpio.DIR_OUT);
 
 
 
@@ -19,7 +19,7 @@ app.get('/', function(req, res){
 });
 
 app.post('/led/on', function(req, res){
-gpio.write(7, true, function(err) {
+gpio.write(11, true, function(err) {
         if (err) throw err;
         console.log('Written True to pin');
 	console.log(path.join(__dirname, 'public'));
@@ -30,7 +30,7 @@ gpio.write(7, true, function(err) {
 
 
 app.post('/led/off', function(req, res){
-gpio.write(7, false, function(err) {
+gpio.write(11, false, function(err) {
         if (err) throw err;
         console.log('Written False to pin');
 	console.log(path.join(__dirname, 'public'));
